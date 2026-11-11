@@ -173,6 +173,3 @@ No bench measurements are included yet. After testing, document the actual confi
 
 This is an educational embedded-systems project, not a certified environmental alarm or safety device.
 
-## License
-
-There is no `LICENSE` file in this repository at the time of writing. Unless the project contributors add a license, do not assume that the source is licensed for reuse or redistribution.

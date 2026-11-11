@@ -140,8 +140,8 @@ platformio.ini          PlatformIO target, framework, libraries, upload and moni
 src/main.cpp            FreeRTOS tasks and application behavior
 src/config.h            Board pin map, LCD settings, thresholds, and sampling period
 tools/capture_uart.py   UART capture, CSV parsing, and latency summary
- tools/requirements.txt Python capture-tool dependencies
- tools/test_capture.py  Tests for parsing and summary calculations
+tools/requirements.txt Python capture-tool dependencies
+tools/test_capture.py  Tests for parsing and summary calculations
 captures/               Destination for local UART captures; generated runs are not committed
 ```
 
@@ -175,4 +175,4 @@ This is an educational embedded-systems project, not a certified environmental a
 
 ## License
 
-This project is distributed under the MIT License. See [`LICENSE`](LICENSE) if present in your local project checkout.
+There is no `LICENSE` file in this repository at the time of writing. Unless the project contributors add a license, do not assume that the source is licensed for reuse or redistribution.

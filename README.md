@@ -1,10 +1,12 @@
 # FreeRTOS Environmental Monitor on STM32 Blue Pill
 
+![CI](https://github.com/srinath-kothakapu/stm32-freertos-environmental-monitor/actions/workflows/ci.yml/badge.svg)
+
 This project is a small, multi-task environmental-monitoring firmware demo for the STM32F103C8T6 "Blue Pill." It reads a DHT11 temperature/humidity sensor, checks configurable thresholds, updates an alert LED and buzzer, displays the latest state on a 16x2 I2C LCD, and streams a CSV record over UART.
 
 The firmware uses the STM32duino Arduino framework with the STM32duino FreeRTOS library. Sensor sampling, alert decisions, display updates, and serial logging are separated into tasks to demonstrate a simple RTOS design with a queue, shared-state synchronization, and task notifications. A companion Python utility captures the UART stream and summarizes the firmware-reported alert latency.
 
-> **Hardware validation status:** this is a new implementation of the project idea and has been syntax-checked, but it has not yet been flashed and verified on a physical board. No measured latency or sensor results are claimed in this repository. Please record your own board and bench results after testing.
+> **Hardware validation status:** this is a new implementation of the project idea. GitHub Actions compiles it for the Blue Pill on every push with PlatformIO (the CI build reports about 56% of flash and 10% of RAM used), but it has not yet been flashed and verified on a physical board. No measured latency or sensor results are claimed in this repository. Please record your own board and bench results after testing.
 
 ## What the project demonstrates
 
@@ -87,7 +89,7 @@ pio run -t upload        # program over ST-Link
 pio device monitor       # open the UART monitor at 115200 baud
 ```
 
-A successful compile only verifies that the source builds for the selected toolchain; it does not demonstrate that the firmware works on a physical board. Check that the selected ST-Link and board are connected before uploading. If you only want to inspect or test the Python UART-capture helper, that can be done without flashing the firmware.
+A successful compile only verifies that the source builds for the selected toolchain; it does not demonstrate that the firmware works on a physical board. CI runs the same `pio run`, plus the Python tool tests, on every push. Check that the selected ST-Link and board are connected before uploading. If you only want to inspect or test the Python UART-capture helper, that can be done without flashing the firmware.
 
 ## Alert behavior
 
